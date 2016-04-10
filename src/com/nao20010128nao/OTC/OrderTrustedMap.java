@@ -1,4 +1,4 @@
-package com.nao20010128nao.OTM;
+package com.nao20010128nao.OTC;
 
 import java.util.Collection;
 import java.util.Map;

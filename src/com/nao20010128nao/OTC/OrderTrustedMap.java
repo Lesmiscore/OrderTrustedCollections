@@ -266,18 +266,21 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		@Override
 		public Iterator<K> iterator() {
 			// TODO 自動生成されたメソッド・スタブ
+			check();
 			return null;
 		}
 
 		@Override
 		public Object[] toArray() {
 			// TODO 自動生成されたメソッド・スタブ
+			check();
 			return null;
 		}
 
 		@Override
 		public <T> T[] toArray(T[] a) {
 			// TODO 自動生成されたメソッド・スタブ
+			check();
 			return null;
 		}
 
@@ -296,10 +299,10 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		@Override
 		public boolean containsAll(Collection<?> c) {
 			// TODO 自動生成されたメソッド・スタブ
+			check();
 			for (Object k : c)
-				if (!contains(k)) {
+				if (!contains(k))
 					return false;
-				}
 			return true;
 		}
 

@@ -213,7 +213,7 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 	@Override
 	public Set<Map.Entry<K, V>> entrySet() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new EntrySet();
 	}
 
 	private Node findLast() {

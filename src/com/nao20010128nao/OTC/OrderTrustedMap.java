@@ -11,7 +11,11 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 	int curModified = 0;
 
 	public OrderTrustedMap() {
-		// TODO 自動生成されたコンストラクター・スタブ
+
+	}
+
+	public OrderTrustedMap(Map<K, V> values) {
+		putAll(values);
 	}
 
 	@Override

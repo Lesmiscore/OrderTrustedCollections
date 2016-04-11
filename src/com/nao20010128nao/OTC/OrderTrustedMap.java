@@ -25,9 +25,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			return 0;
 		Node curNode = nodes;
 		int count = 0;
-		while ((curNode = curNode.next) != null) {
+		while ((curNode = curNode.next) != null)
 			count++;
-		}
 		return count;
 	}
 
@@ -43,23 +42,14 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		if (isEmpty())
 			return false;
 		Node curNode = nodes;
-		while ((curNode = curNode.next) != null) {
+		while ((curNode = curNode.next) != null)
 			if (key == null) {
-				if (curNode.k == null) {
-					return true;
-				}
+				if (curNode.k == null) return true;
 			} else {
-				if (curNode.k == null) {
-					continue;
-				}
-				if (curNode.k == key) {
-					return true;
-				}
-				if (curNode.k.equals(key)) {
-					return true;
-				}
+				if (curNode.k == null) continue;
+				if (curNode.k == key) return true;
+				if (curNode.k.equals(key)) return true;
 			}
-		}
 		return false;
 	}
 
@@ -69,23 +59,14 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		if (isEmpty())
 			return false;
 		Node curNode = nodes;
-		while ((curNode = curNode.next) != null) {
+		while ((curNode = curNode.next) != null)
 			if (value == null) {
-				if (curNode.v == null) {
-					return true;
-				}
+				if (curNode.v == null) return true;
 			} else {
-				if (curNode.v == null) {
-					continue;
-				}
-				if (curNode.v == value) {
-					return true;
-				}
-				if (curNode.v.equals(value)) {
-					return true;
-				}
+				if (curNode.v == null) continue;
+				if (curNode.v == value) return true;
+				if (curNode.v.equals(value)) return true;
 			}
-		}
 		return false;
 	}
 
@@ -95,23 +76,14 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		if (isEmpty())
 			return null;
 		Node curNode = nodes;
-		while ((curNode = curNode.next) != null) {
+		while ((curNode = curNode.next) != null)
 			if (key == null) {
-				if (curNode.k == null) {
-					return curNode.v;
-				}
+				if (curNode.k == null) return curNode.v;
 			} else {
-				if (curNode.k == null) {
-					continue;
-				}
-				if (curNode.k == key) {
-					return curNode.v;
-				}
-				if (curNode.k.equals(key)) {
-					return curNode.v;
-				}
+				if (curNode.k == null) continue;
+				if (curNode.k == key) return curNode.v;
+				if (curNode.k.equals(key)) return curNode.v;
 			}
-		}
 		return null;
 	}
 
@@ -121,7 +93,7 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		if (containsKey(key))
 			return null;
 		Node curNode = nodes;
-		while ((curNode = curNode.next) != null) {
+		while ((curNode = curNode.next) != null)
 			if (value == null) {
 				if (curNode.k == null) {
 					V val = curNode.v;
@@ -129,9 +101,7 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 					return val;
 				}
 			} else {
-				if (curNode.k == null) {
-					continue;
-				}
+				if (curNode.k == null) continue;
 				if (curNode.k == key) {
 					V val = curNode.v;
 					curNode.v = value;
@@ -143,7 +113,6 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 					return val;
 				}
 			}
-		}
 		Node newNode = new Node();
 		newNode.k = key;
 		newNode.v = value;
@@ -158,9 +127,7 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			return null;
 		Node curNode = nodes;
 		while ((curNode = curNode.next) != null) {
-			if (curNode.next == null) {
-				return null;
-			}
+			if (curNode.next == null) return null;
 			if (key == null) {
 				if (curNode.next.k == null) {
 					curModified++;
@@ -169,9 +136,7 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 					return val;
 				}
 			} else {
-				if (curNode.next.k == null) {
-					continue;
-				}
+				if (curNode.next.k == null) continue;
 				if (curNode.next.k == key) {
 					curModified++;
 					V val = curNode.next.v;
@@ -222,9 +187,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 
 	private Node findLast() {
 		Node curNode = nodes;
-		while (null != curNode.next) {
+		while (null != curNode.next)
 			curNode = curNode.next;
-		}
 		return curNode;
 	}
 
@@ -304,9 +268,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			Object[] o = new Object[size()];
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = curNode.k;
-			}
 			return o;
 		}
 
@@ -316,9 +279,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			check();
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = (T) curNode.k;
-			}
 			return o;
 		}
 
@@ -442,9 +404,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			Object[] o = new Object[size()];
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = curNode.v;
-			}
 			return o;
 		}
 
@@ -454,9 +415,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			check();
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = (T) curNode.v;
-			}
 			return o;
 		}
 
@@ -564,27 +524,15 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 		public boolean contains(Object o) {
 			// TODO 自動生成されたメソッド・スタブ
 			check();
-			if (o instanceof Map.Entry) {
-				if (containsKey(((Map.Entry) o).getKey())) {
-					if (((Map.Entry) o).getValue() == null) {
-						if (get(((Map.Entry) o).getKey()) == null) {
-							return true;
-						}
-					} else {
-						if (get(((Map.Entry) o).getKey()) == null) {
-							return false;
-						}
-						if (get(((Map.Entry) o).getKey()) == ((Map.Entry) o).getValue()) {
-							return true;
-						}
-						if (get(((Map.Entry) o).getKey()).equals(((Map.Entry) o).getValue())) {
-							return true;
-						}
-					}
+			if (o instanceof Map.Entry) if (containsKey(((Map.Entry) o).getKey())) {
+				if (((Map.Entry) o).getValue() == null) {
+					if (get(((Map.Entry) o).getKey()) == null) return true;
 				} else {
-					return false;
+					if (get(((Map.Entry) o).getKey()) == null) return false;
+					if (get(((Map.Entry) o).getKey()) == ((Map.Entry) o).getValue()) return true;
+					if (get(((Map.Entry) o).getKey()).equals(((Map.Entry) o).getValue())) return true;
 				}
-			}
+			} else return false;
 			return false;
 		}
 
@@ -602,9 +550,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			Object[] o = new Object[size()];
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = curNode.k;
-			}
 			return o;
 		}
 
@@ -614,9 +561,8 @@ public class OrderTrustedMap<K, V> implements Map<K, V> {
 			check();
 			Node curNode = nodes;
 			int offset = 0;
-			while ((curNode = curNode.next) != null) {
+			while ((curNode = curNode.next) != null)
 				o[offset++] = (T) curNode.k;
-			}
 			return o;
 		}
 
